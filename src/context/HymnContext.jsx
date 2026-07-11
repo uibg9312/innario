@@ -13,15 +13,16 @@ import {
 
 const HymnContext = createContext();
 
-// Firebase configuration targeting the memorypalace-7ecda project
+// Firebase configuration loaded from environment variables.
+// Copy .env.example to .env.local and fill in your own Firebase project credentials.
 const firebaseConfig = {
-    apiKey: "AIzaSyDEXWjv3KnyuAb64dvypnCvzIKvTQzL2fs",
-    authDomain: "memorypalace-7ecda.firebaseapp.com",
-    projectId: "memorypalace-7ecda",
-    storageBucket: "memorypalace-7ecda.firebasestorage.app",
-    messagingSenderId: "962134933641",
-    appId: "1:962134933641:web:ddb0b72a69580c89eac658",
-    measurementId: "G-FC1S4GJK11"
+    apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+    authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+    projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+    storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+    appId: import.meta.env.VITE_FIREBASE_APP_ID,
+    measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 };
 
 // Initialize Firebase App

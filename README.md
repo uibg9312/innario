@@ -1,16 +1,63 @@
-# React + Vite
+# 🎵 Innario — La Luce del Mondo
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Esqueleto open-source de una app de himnario digital multiplataforma (PWA + Android).
 
-Currently, two official plugins are available:
+Este repositorio contiene el **código fuente** de la aplicación web (React + Firebase) de un himnario digital bilingüe (italiano/español) desplegado en producción. Se publica como **esqueleto**: el código, la arquitectura y la interfaz están completos, pero los **datos de los himnos y las credenciales se han omitido** por privacidad.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![React](https://img.shields.io/badge/React-19-61dafb)
+![Vite](https://img.shields.io/badge/Vite-7-646cff)
+![Firebase](https://img.shields.io/badge/Firebase-Firestore-orange)
+![PWA](https://img.shields.io/badge/PWA-Installable-purple)
 
-## React Compiler
+## ✨ Características de la app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **📖 Biblioteca de himnos** — Navega 330+ himnos por número, categoría (Regulares / Adicionales / Editor) o índice temático.
+- **🔍 Búsqueda y filtros** — Búsqueda instantánea por texto y filtros por categoría.
+- **❤️ Favoritos y recientes** — Marca himnos favoritos y continúa la lectura donde la dejaste.
+- **⚙️ Personalizable** — Ajusta familia de fuente, tamaño y tema (claro/oscuro).
+- **📱 PWA instalable** — Funciona offline una vez instalada, con soporte para múltiples pestañas.
+- **🛠️ Panel de administración** — Editar, añadir y eliminar himnos que se sincronizan con Firestore (con *fallback* a `localStorage`).
+- **🤖 App Android nativa** — Versión en Kotlin + Jetpack Compose (arquitectura MVVM, Room, Firestore) en una carpeta separada.
 
-## Expanding the ESLint configuration
+## 🛠️ Stack técnico
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+| Tecnología | Rol |
+|---|---|
+| **React 19 + Vite 7** | Framework UI y bundler |
+| **Tailwind CSS 3** | Estilos y sistema de diseño |
+| **Firebase Firestore** | Base de datos en tiempo real con caché offline |
+| **Framer Motion** | Animaciones (splash screen, transiciones) |
+| **React Router 7** | Navegación |
+| **vite-plugin-pwa** | Service worker y manifiesto PWA |
+
+## 🚀 Puesta en marcha
+
+Este es un esqueleto: para ejecutarlo necesitas proporcionar tus propias credenciales y datos.
+
+```bash
+# 1. Instalar dependencias
+npm install
+
+# 2. Configurar Firebase
+#    Copia el template y rellena con tus credenciales:
+cp .env.example .env.local
+#    Edita .env.local con los valores de tu proyecto Firebase
+
+# 3. Servidor de desarrollo
+npm run dev
+
+# 4. Build de producción
+npm run build
+```
+
+> ⚠️ **Nota:** El esqueleto no incluye el archivo de datos `cantos.json` ni la base de datos Firestore. La app espera una colección Firestore (`innario`) con la estructura de himnos documentada en el código (`src/context/HymnContext.jsx`).
+
+## 🔐 Privacidad
+
+- Las credenciales de Firebase se cargan mediante variables de entorno (`.env.local`).
+- No se incluye ningún dato de himnos ni contenido editorial en este repositorio.
+- Las reglas de Firestore incluidas (`firestore.rules`) son de ejemplo; ajústalas a tus necesidades de seguridad.
+
+## 📄 Licencia
+
+MIT
